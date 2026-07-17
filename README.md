@@ -3,9 +3,112 @@
 ## What is this?
 This is a keyboard, designed to be slightly ergonomic-consious while keeping the orginal layout and familarity of an 80% keyboard. The idea is to create a split keyboard, but with the option to connect the two havles together to create a regular 80% keyboard, inspired from the [Epomaker Split 65](https://epomaker.com/products/epomaker-split-65). Unlike the Split 65, this features an 80% layout with macro keys on the left column, an OLED 0.91 inch screen and rotary encoder on both sides. While making this keyboard, I realized that the format is really similar to the [Keychron Q11](https://www.keychron.com/products/keychron-q11-qmk-custom-mechanical-keyboard) with the macro keys and 80% layout. This keyboard features an unexploded (?) layout, maximizing desk space without comprimising on the number of keys (I need my precious function row). 
 
+| <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20assembly%20w%20electronics%20photo.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20case.png" width="500"> |
+| - | - |
+| <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20case.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20case.png" width="500"> |
+| <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20plate.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20plate.png" width="500"> |
+
+Each side of the keyboard is powered by an Pi Pico with an RP2040. The descision behind the RP2040 was due to the number of GPIO pins. Other options such as the nrf52840 and the RP2040-Zero would've worked well for this project, but the number of GPIO pins wouldn't be sufficient for all the switches and the extra features on the keyboard. The OLED screen is a general 0.91 inch 128x32px screen, with optional footprints for pull-up resistors, and the rotary encoder is a regular EC11 push switch. The switches in the keyboard are wired in a matrix with a diode on each switch. The left side is wired as an 8x6 matrix, and the right side is an 9x6 matrix. The switches themselves contain a regular mx hotswap socket which allows for easy switching between switches of the same format.
+
+## Schematic
+| <img src="https://cdn.hackclub.com/019f52d7-348d-759e-b54a-aca0eda0cbdf/image.png" width="500"> | <img src="https://cdn.hackclub.com/019f52d7-733c-792f-af99-fb6eb998cc4f/image.png" width="500">| 
+| - | - |
+
+The schematic contains a matrix for the switches on each side, a simple 4 pin OLED screen with pull-up resistors that can be unpopulated if the screen already has pull-ups, a USB-C UART connector between the two halves, and a fuse and capacitor for the power line.
+
+## PCB
+<img src="https://cdn.hackclub.com/019f6263-ce19-7235-84e5-19c77bb26d97/image.png" width="1000">
+
+The PCB is a simple PCB with traces of varying widths for the purpose of each trace. The power lines and ground lines for the USB-C receptacle were 0.75mm, other ground traces and local power lines are 0.5mm. The PCB also includes M2 holes for the mounting and mousebites so the PCB can be ordered as one part.
+
+## BOM
+
+### JLCPCB BOM
+ Qty | References | Component | Manufacturer / Part number | PCB footprint | JLCPCB part | Library |
+|---:|---|---|---|---|---|---|
+| 2 | `C2, C3` | 10 µF, 50 V, X5R, ±10% ceramic capacitor | Murata `GRM21BR61H106KE43L` | `0805` | [C440198](https://jlcpcb.com/partdetail/439567-GRM21BR61H106KE43L/C440198) | Basic |
+| 92 | `D43–D134` | 1 A, 200 V fast-recovery diode | DOWO `ES1D (SOD-123FL)` | `SOD-123FL` | [C22374920](https://jlcpcb.com/partdetail/DOWO-ES1D_SOD_123FL/C22374920) | Extended |
+| 2 | `F2, F3` | 500 mA resettable fuse, 33 V | BHFUSE `BSMD1206-050-33V` | `1206` | [C7202014](https://jlcpcb.com/partdetail/BHFUSE-BSMD1206_05033V/C7202014) | Extended |
+| 2 | `J2, J3` | USB-C 2.0 receptacle, 16-pin | Korean Hroparts `TYPE-C-31-M-12` | `USB_C_Receptacle_HRO_TYPE-C-31-M-12` | [C165948](https://jlcpcb.com/partdetail/Korean_HropartsElec-TYPE_C_31_M12/C165948) | Extended |
+| 2 | `R5, R6` | 47 Ω, ±1%, 100 mW resistor | UNI-ROYAL `0603WAF470JT5E` | `0603` | [C23182](https://jlcpcb.com/partdetail/23909-0603WAF470JT5E/C23182) | Basic |
+| 90 | `SW43–SW50`, `SW52–SW92`, `SW94–SW134` | MX-compatible hot-swap socket | HanElectricity `CPG151101S11-16` | See variants below | [C41430893](https://jlcpcb.com/partdetail/HanElectricity-CPG151101S1116/C41430893) | Extended |
+
+<details>
+<summary>Hot-swap footprint variants</summary>
+
+| Footprint | Qty |
+|---|---:|
+| `MX100H` | 77 |
+| `MX125H` | 4 |
+| `MX150H` | 2 |
+| `MX175H` | 2 |
+| `MX200H` | 1 |
+| `MX225H` | 3 |
+| `MX275H` | 1 |
+| **Total** | **90** |
+
+</details> 
+
+## PCB and PCBA
+| Component | Quantity | Notes / specification | Link | Cost |
+|---|---:|---|---|---:|
+| Custom split-keyboard PCB set | 1 set | Left and right PCB | [ADD LINK](#) | ADD COST |
+| Raspberry Pi Pico | 2 | RP2040 USB-C Clone | [LINK](https://www.aliexpress.com/item/1005009245863235.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+11.55%21CAD+11.54%21%21CAD+11.54%21%21%21%402101ca8b17843197791473957e12a8%2112000048456623655%21ct%21CA%213742168056%21%211%210%21) | $8.09 USD |
+| Kailh MX-compatible hot-swap socket | 90 | HanElectricity `CPG151101S11-16`; JLCPCB/LCSC `C41430893` | [JLCPCB](https://jlcpcb.com/partdetail/HanElectricity-CPG151101S1116/C41430893) | Included in PCBA |
+| Matrix diode | 92 | DOWO `ES1D`, SOD-123FL, 1 A, 200 V; JLCPCB/LCSC `C22374920` | [JLCPCB](https://jlcpcb.com/partdetail/DOWO-ES1D_SOD_123FL/C22374920) | Included in PCBA |
+| USB-C 2.0 receptacle | 2 | Korean Hroparts `TYPE-C-31-M-12`; JLCPCB/LCSC `C165948` | [JLCPCB](https://jlcpcb.com/partdetail/TYPE-C-31-M-12/C165948) | Included in PCBA |
+| Resettable polyfuse | 2 | BHFUSE `BSMD1206-050-33V`, 500 mA; JLCPCB/LCSC `C7202014` | [JLCPCB](https://jlcpcb.com/partdetail/BHFUSE-BSMD1206_05033V/C7202014) | Included in PCBA |
+| 10 µF ceramic capacitor | 2 | Murata `GRM21BR61H106KE43L`, 0805, 50 V, X5R; JLCPCB/LCSC `C440198` | [JLCPCB](https://jlcpcb.com/partdetail/439567-GRM21BR61H106KE43L/C440198) | Included in PCBA |
+| 47 Ω resistor | 2 | UNI-ROYAL `0603WAF470JT5E`, 0603, ±1%; JLCPCB/LCSC `C23182` | [JLCPCB](https://jlcpcb.com/partdetail/23909-0603WAF470JT5E/C23182) | Included in PCBA |
+| 4.7 kΩ pull-up resistor | 4 optional | Through-hole; only install if the OLED modules do not include I²C pull-ups | Optional | N/A |
+
+## Displays and Controls
+
+| Component | Quantity | Notes / specification | Link | Cost |
+|---|---:|---|---|---:|
+| 0.91-inch I²C OLED display | 2 | pin order and pull ups | [AliExpress](https://www.aliexpress.com/item/1005008640108394.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+11.39%21CAD+1.42%21%21CAD+1.42%21%21%21%402101ca8b17843197791473957e12a8%2112000046056142550%21ct%21CA%213742168056%21%211%210%21) | $7.70 USD |
+| EC11-style rotary encoder with push switch | 2 | EC11 Footprint | [AliExpress](https://www.aliexpress.com/item/1005005622580163.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+4.93%21CAD+1.42%21%21CAD+1.42%21%21%21%402101ca8b17843197791473957e12a8%2112000033780344822%21ct%21CA%213742168056%21%211%210%21) | $3.35 USD |
+
+## Switches and Keycaps
+
+| Component | Quantity | Notes / specification | Link | Cost |
+|---|---:|---|---|---:|
+| MX-compatible mechanical switch | 90 | 5-pin PCB-mount switches recommendeds | [AliExpress](https://www.aliexpress.com/item/1005005888884109.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+32.19%21CAD+29.12%21%21CAD+29.12%21%21%21%402101ca8b17843197791473957e12a8%2112000034716470009%21ct%21CA%213742168056%21%211%210%21) | $22.53 USD |
+| Keycap set | 1 set | Must cover the full split layout and split spacebar | [AliExpress](https://www.aliexpress.com/item/1005009105824301.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+39.22%21CAD+36.74%21%21CAD+36.74%21%21%21%402101ca8b17843197791473957e12a8%2112000047931129388%21ct%21CA%213742168056%21%211%210%21) | $27.45 USD |
+| Stabilizers | As required | Required for stabilized keys | [AliExpress](https://www.aliexpress.com/item/1005005793408621.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+15.78%21CAD+14.56%21%21CAD+14.56%21%21%21%402101ca8b17843197791473957e12a8%2112000034412755962%21ct%21CA%213742168056%21%211%210%21) | $10.72 USD |
+
+## Case, Plate, and Mounting Hardware
+
+| Component | Quantity | Notes / specification | Link | Cost |
+|---|---:|---|---|---:|
+| Left keyboard plate | 1 | 3d printed | N/A | FREE |
+| Right keyboard plate | 1 | 3d printed | N/A | FREE |
+| Left keyboard case | 1 | 3d printed | N/A | FREE |
+| Right keyboard case | 1 | 3d printed | N/A | FREE |
+
+
+## Pico and Display Installation Hardware
+
+| Component | Quantity | Notes / specification | Link | Cost |
+|---|---:|---|---|---:|
+| 1×20 pin headers | 4 strips | Two rows per Pico if soldering through-hole headers | COMES WITH PI PICO | FREE |
+| 1×4 pin headers | 2 | For directly soldering the OLED modules | COMES WITH OLED | FREE |
+
+## Cost Summary
+
+| Category | Cost |
+|---|---:|
+| PCB fabrication and assembly | ADD COST |
+| PCB components | ADD COST |
+| Picos, displays, and encoders | ADD COST |
+| Switches and keycaps | ADD COST |
+| Case, plates, and hardware | ADD COST |
+| Cables and assembly supplies | ADD COST |
+| Shipping and taxes | ADD COST |
+| **Estimated total** | **ADD COST** |
+
 
 ## Journals
-
 
 ### Journal #1
 LAPSE LINK: https://lapse.hackclub.com/timelapse/AHXKs98OKrFT
