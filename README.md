@@ -3,12 +3,19 @@
 ## What is this?
 This is a keyboard, designed to be slightly ergonomic-consious while keeping the orginal layout and familarity of an 80% keyboard. The idea is to create a split keyboard, but with the option to connect the two havles together to create a regular 80% keyboard, inspired from the [Epomaker Split 65](https://epomaker.com/products/epomaker-split-65). Unlike the Split 65, this features an 80% layout with macro keys on the left column, an OLED 0.91 inch screen and rotary encoder on both sides. While making this keyboard, I realized that the format is really similar to the [Keychron Q11](https://www.keychron.com/products/keychron-q11-qmk-custom-mechanical-keyboard) with the macro keys and 80% layout. This keyboard features an unexploded (?) layout, maximizing desk space without comprimising on the number of keys (I need my precious function row). 
 
+Each side of the keyboard is powered by an Pi Pico with an RP2040. The descision behind the RP2040 was due to the number of GPIO pins. Other options such as the nrf52840 and the RP2040-Zero would've worked well for this project, but the number of GPIO pins wouldn't be sufficient for all the switches and the extra features on the keyboard. The OLED screen is a general 0.91 inch 128x32px screen, with optional footprints for pull-up resistors, and the rotary encoder is a regular EC11 push switch. The switches in the keyboard are wired in a matrix with a diode on each switch. The left side is wired as an 8x6 matrix, and the right side is an 9x6 matrix. The switches themselves contain a regular mx hotswap socket which allows for easy switching between switches of the same format.
+
+## CAD
 | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20assembly%20w%20electronics%20photo.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20case.png" width="500"> |
 | - | - |
 | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20case.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20case.png" width="500"> |
 | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20plate.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20plate.png" width="500"> |
 
-Each side of the keyboard is powered by an Pi Pico with an RP2040. The descision behind the RP2040 was due to the number of GPIO pins. Other options such as the nrf52840 and the RP2040-Zero would've worked well for this project, but the number of GPIO pins wouldn't be sufficient for all the switches and the extra features on the keyboard. The OLED screen is a general 0.91 inch 128x32px screen, with optional footprints for pull-up resistors, and the rotary encoder is a regular EC11 push switch. The switches in the keyboard are wired in a matrix with a diode on each switch. The left side is wired as an 8x6 matrix, and the right side is an 9x6 matrix. The switches themselves contain a regular mx hotswap socket which allows for easy switching between switches of the same format.
+This keyboard is printed in two parts, with two different cases for each half of the PCB, as well as two plates for each half.
+
+[ONSHAPE LINK](https://cad.onshape.com/documents/be21bbec0bd274685795aaea/w/a2ca9be3fdf7d240859b7480/e/7d2817619a652fb02e73bd80?renderMode=0&uiState=6a5abe03f499bb71b75dc1e1)
+
+
 
 ## Schematic
 | <img src="https://cdn.hackclub.com/019f52d7-348d-759e-b54a-aca0eda0cbdf/image.png" width="500"> | <img src="https://cdn.hackclub.com/019f52d7-733c-792f-af99-fb6eb998cc4f/image.png" width="500">| 
@@ -49,10 +56,10 @@ The PCB is a simple PCB with traces of varying widths for the purpose of each tr
 
 </details> 
 
-## PCB and PCBA
+### PCB and PCBA
 | Component | Quantity | Notes / specification | Link | Cost |
 |---|---:|---|---|---:|
-| Custom split-keyboard PCB set | 1 set | Left and right PCB | [ADD LINK](#) | ADD COST |
+| Custom split-keyboard PCB set | 1  | Left and right PCB (together) | [JLCPCB](https://jlcpcb.com/) | $64.59 USD |
 | Raspberry Pi Pico | 2 | RP2040 USB-C Clone | [LINK](https://www.aliexpress.com/item/1005009245863235.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+11.55%21CAD+11.54%21%21CAD+11.54%21%21%21%402101ca8b17843197791473957e12a8%2112000048456623655%21ct%21CA%213742168056%21%211%210%21) | $8.09 USD |
 | Kailh MX-compatible hot-swap socket | 90 | HanElectricity `CPG151101S11-16`; JLCPCB/LCSC `C41430893` | [JLCPCB](https://jlcpcb.com/partdetail/HanElectricity-CPG151101S1116/C41430893) | Included in PCBA |
 | Matrix diode | 92 | DOWO `ES1D`, SOD-123FL, 1 A, 200 V; JLCPCB/LCSC `C22374920` | [JLCPCB](https://jlcpcb.com/partdetail/DOWO-ES1D_SOD_123FL/C22374920) | Included in PCBA |
@@ -62,14 +69,14 @@ The PCB is a simple PCB with traces of varying widths for the purpose of each tr
 | 47 Ω resistor | 2 | UNI-ROYAL `0603WAF470JT5E`, 0603, ±1%; JLCPCB/LCSC `C23182` | [JLCPCB](https://jlcpcb.com/partdetail/23909-0603WAF470JT5E/C23182) | Included in PCBA |
 | 4.7 kΩ pull-up resistor | 4 optional | Through-hole; only install if the OLED modules do not include I²C pull-ups | Optional | N/A |
 
-## Displays and Controls
+### Displays and Controls
 
 | Component | Quantity | Notes / specification | Link | Cost |
 |---|---:|---|---|---:|
 | 0.91-inch I²C OLED display | 2 | pin order and pull ups | [AliExpress](https://www.aliexpress.com/item/1005008640108394.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+11.39%21CAD+1.42%21%21CAD+1.42%21%21%21%402101ca8b17843197791473957e12a8%2112000046056142550%21ct%21CA%213742168056%21%211%210%21) | $7.70 USD |
 | EC11-style rotary encoder with push switch | 2 | EC11 Footprint | [AliExpress](https://www.aliexpress.com/item/1005005622580163.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+4.93%21CAD+1.42%21%21CAD+1.42%21%21%21%402101ca8b17843197791473957e12a8%2112000033780344822%21ct%21CA%213742168056%21%211%210%21) | $3.35 USD |
 
-## Switches and Keycaps
+### Switches and Keycaps
 
 | Component | Quantity | Notes / specification | Link | Cost |
 |---|---:|---|---|---:|
@@ -77,36 +84,39 @@ The PCB is a simple PCB with traces of varying widths for the purpose of each tr
 | Keycap set | 1 set | Must cover the full split layout and split spacebar | [AliExpress](https://www.aliexpress.com/item/1005009105824301.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+39.22%21CAD+36.74%21%21CAD+36.74%21%21%21%402101ca8b17843197791473957e12a8%2112000047931129388%21ct%21CA%213742168056%21%211%210%21) | $27.45 USD |
 | Stabilizers | As required | Required for stabilized keys | [AliExpress](https://www.aliexpress.com/item/1005005793408621.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+15.78%21CAD+14.56%21%21CAD+14.56%21%21%21%402101ca8b17843197791473957e12a8%2112000034412755962%21ct%21CA%213742168056%21%211%210%21) | $10.72 USD |
 
-## Case, Plate, and Mounting Hardware
+### Case, Plate, and Mounting Hardware
 
 | Component | Quantity | Notes / specification | Link | Cost |
 |---|---:|---|---|---:|
-| Left keyboard plate | 1 | 3d printed | N/A | FREE |
-| Right keyboard plate | 1 | 3d printed | N/A | FREE |
-| Left keyboard case | 1 | 3d printed | N/A | FREE |
-| Right keyboard case | 1 | 3d printed | N/A | FREE |
+| Left keyboard plate | 1 | 3d printed | N/A | N/A |
+| Right keyboard plate | 1 | 3d printed | N/A | N/A |
+| Left keyboard case | 1 | 3d printed | N/A | N/A |
+| Right keyboard case | 1 | 3d printed | N/A | N/A |
 
 
-## Pico and Display Installation Hardware
+### Pico and Display Installation Hardware
 
 | Component | Quantity | Notes / specification | Link | Cost |
 |---|---:|---|---|---:|
 | 1×20 pin headers | 4 strips | Two rows per Pico if soldering through-hole headers | COMES WITH PI PICO | FREE |
 | 1×4 pin headers | 2 | For directly soldering the OLED modules | COMES WITH OLED | FREE |
 
-## Cost Summary
+### Cost Summary
 
 | Category | Cost |
 |---|---:|
-| PCB fabrication and assembly | ADD COST |
-| PCB components | ADD COST |
-| Picos, displays, and encoders | ADD COST |
-| Switches and keycaps | ADD COST |
-| Case, plates, and hardware | ADD COST |
-| Cables and assembly supplies | ADD COST |
-| Shipping and taxes | ADD COST |
-| **Estimated total** | **ADD COST** |
+| PCB fabrication  | $29.90 USD |
+| PCB components and assembly | $34.69 USD |
+| Picos, displays, and encoders | $19.14 USD |
+| Switches and keycaps | $49.98 USD |
+| Case, plates, and hardware | N/A |
+| Cables and assembly supplies | $10.72 |
+| Shipping and taxes | $41.25 USD |
+| **Estimated total** | **$185.68 USD** |
 
+
+## Firmware
+Setting up the Pi Pico with the correct firmware can be done with [POG](https://pog.heaper.de/), but this requires the actual Pi Pico in order to use. The page will be updated when the keyboard is completed.
 
 ## Journals
 
@@ -189,3 +199,10 @@ Using this keyboard layout editor and ai03's plate generator, I generated a DXF 
 No lapse link today cause I thought this would take less time than it did :(. Turns out everything takes longer when you think it's straightforward.
 Because I changed the layout of the mousebites on the PCB, I had to change the offset of the positions of the CPL again... I gotta write a script to automate this. It's such a pain. I also edited the BOM of the PCB through JLCPCB, which includes the link, part number, etc. Despite that being pretty easy, JLCPCB allows download of the BOM after choosing the parts, but only in .xls format. Converting this from .xls to .csv is pretty straightforward, as long as you can view the .xls format. I used a random online editor for the .xls and VS Code for the .csv file.
 <img src="https://cdn.hackclub.com/019f6dac-b1d0-7429-9852-7c5f95cf1bf9/image.png" width="1000">
+
+
+### Journal #10
+I was going through some sensitive information on my JLCPCB account and shipping accounts, so I didn't use Lapse this time.
+<img src="https://cdn.hackclub.com/019f723b-a043-755f-b9d6-dcad5ae19d37/image.png" width="1000">
+<img src="https://cdn.hackclub.com/019f723b-172d-7410-a7e7-6dc319a93c0e/image.png" width="1000">
+I wanted to lower the shipping costs of the PCB, as it was 40% of the total cost of the PCB. I attempted to split the PCB into two separate halves instead of one with mousebites to reduce the total dimensions of the PCB, and update the BOM and CPL of both of the halves. However, despite all these changes, the total cost of the PCBs actually increased, making all the work rather fruitless. I did, however, manage to find a couple of traces that were too close for the tolerances of the pads.
