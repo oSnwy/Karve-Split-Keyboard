@@ -24,7 +24,7 @@ This keyboard is printed in two parts, with two different cases for each half of
 | <img src="https://cdn.hackclub.com/019f52d7-348d-759e-b54a-aca0eda0cbdf/image.png" width="500"> | <img src="https://cdn.hackclub.com/019f52d7-733c-792f-af99-fb6eb998cc4f/image.png" width="500">| 
 | - | - |
 
-The schematic contains a matrix for the switches on each side, a simple 4 pin OLED screen with pull-up resistors that can be unpopulated if the screen already has pull-ups, a USB-C UART connector between the two halves, and a fuse and capacitor for the power line.
+The schematic contains a matrix for the switches on each side, a simple 4 pin OLED screen with pull-up resistors that can be unpopulated if the screen already has pull-ups, a USB-C UART connector between the two halves, and a fuse and capacitor for the power line. The USB-C UART connections works by splitting the TX and RX lines, as well as passing the 5v through the VSYS and passing the ground through the wire.
 
 ## PCB
 <img src="https://cdn.hackclub.com/019f6263-ce19-7235-84e5-19c77bb26d97/image.png" width="1000">
@@ -119,7 +119,21 @@ The PCB is a simple PCB with traces of varying widths for the purpose of each tr
 
 
 ## Firmware
-Setting up the Pi Pico with the correct firmware can be done with [POG](https://pog.heaper.de/), but this requires the actual Pi Pico in order to use. The page will be updated when the keyboard is completed.
+The keyboard will use [POG](https://pog.heaper.de/) to generate and configure KMK firmware for the Raspberry Pi Pico.
+
+The final firmware has not yet been generated because POG requires access to the physical Pico and keyboard hardware for setup and testing. Firmware development and validation will be completed after the PCB and components arrive.
+
+Planned firmware features:
+
+- 8/9 × 6 key matrix on each half
+- UART communication between the two halves
+- Two rotary encoders with push buttons
+- Two I²C OLED displays
+- Custom keymap and layers
+- USB HID keyboard output
+
+After assembly, the generated POG/KMK configuration and installation
+instructions will be added to this folder.
 
 ## Journals
 
