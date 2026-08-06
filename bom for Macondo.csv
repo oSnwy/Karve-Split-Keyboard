@@ -1,0 +1,21 @@
+﻿Category,Component,Quantity,Notes / specification,Link,Cost
+PCB and PCBA,Custom split-keyboard PCB set,1,Left and right PCB (together),https://jlcpcb.com/,$64.59 USD
+PCB and PCBA,Raspberry Pi Pico,2,RP2040 USB-C Clone,https://www.aliexpress.com/item/1005009245863235.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+11.55%21CAD+11.54%21%21CAD+11.54%21%21%21%402101ca8b17843197791473957e12a8%2112000048456623655%21ct%21CA%213742168056%21%211%210%21,$8.09 USD
+PCB and PCBA,Kailh MX-compatible hot-swap socket,90,HanElectricity CPG151101S11-16; JLCPCB/LCSC C41430893,https://jlcpcb.com/partdetail/HanElectricity-CPG151101S1116/C41430893,Included in PCBA
+PCB and PCBA,Matrix diode,92,"DOWO ES1D, SOD-123FL, 1 A, 200 V; JLCPCB/LCSC C22374920",https://jlcpcb.com/partdetail/DOWO-ES1D_SOD_123FL/C22374920,Included in PCBA
+PCB and PCBA,USB-C 2.0 receptacle,2,Korean Hroparts TYPE-C-31-M-12; JLCPCB/LCSC C165948,https://jlcpcb.com/partdetail/TYPE-C-31-M-12/C165948,Included in PCBA
+PCB and PCBA,Resettable polyfuse,2,"BHFUSE BSMD1206-050-33V, 500 mA; JLCPCB/LCSC C7202014",https://jlcpcb.com/partdetail/BHFUSE-BSMD1206_05033V/C7202014,Included in PCBA
+PCB and PCBA,10 µF ceramic capacitor,2,"Murata GRM21BR61H106KE43L, 0805, 50 V, X5R; JLCPCB/LCSC C440198",https://jlcpcb.com/partdetail/439567-GRM21BR61H106KE43L/C440198,Included in PCBA
+PCB and PCBA,47 Ω resistor,2,"UNI-ROYAL 0603WAF470JT5E, 0603, ±1%; JLCPCB/LCSC C23182",https://jlcpcb.com/partdetail/23909-0603WAF470JT5E/C23182,Included in PCBA
+PCB and PCBA,4.7 kΩ pull-up resistor,4 optional,Through-hole; only install if the OLED modules do not include I²C pull-ups,Optional,N/A
+Displays and Controls,0.91-inch I²C OLED display,2,Pin order and pull ups,https://www.aliexpress.com/item/1005008640108394.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+11.39%21CAD+1.42%21%21CAD+1.42%21%21%21%402101ca8b17843197791473957e12a8%2112000046056142550%21ct%21CA%213742168056%21%211%210%21,$7.70 USD
+Displays and Controls,EC11-style rotary encoder with push switch,2,EC11 Footprint,https://www.aliexpress.com/item/1005005622580163.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+4.93%21CAD+1.42%21%21CAD+1.42%21%21%21%402101ca8b17843197791473957e12a8%2112000033780344822%21ct%21CA%213742168056%21%211%210%21,$3.35 USD
+Switches and Keycaps,MX-compatible mechanical switch,90,5-pin PCB-mount switches recommended,https://www.aliexpress.com/item/1005005888884109.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+32.19%21CAD+29.12%21%21CAD+29.12%21%21%21%402101ca8b17843197791473957e12a8%2112000034716470009%21ct%21CA%213742168056%21%211%210%21,$22.53 USD
+Switches and Keycaps,Keycap set,1 set,Must cover the full split layout and split spacebar,https://www.aliexpress.com/item/1005009105824301.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+39.22%21CAD+36.74%21%21CAD+36.74%21%21%21%402101ca8b17843197791473957e12a8%2112000047931129388%21ct%21CA%213742168056%21%211%210%21,$27.45 USD
+Switches and Keycaps,Stabilizers,As required,Required for stabilized keys,https://www.aliexpress.com/item/1005005793408621.html?spm=a2g0o.cart.0.0.5c6838daXRLmIS&mp=1&pdp_npi=6%40dis%21CAD%21CAD+15.78%21CAD+14.56%21%21CAD+14.56%21%21%21%402101ca8b17843197791473957e12a8%2112000034412755962%21ct%21CA%213742168056%21%211%210%21,$10.72 USD
+"Case, Plate, and Mounting Hardware",Left keyboard plate,1,3D printed,N/A,N/A
+"Case, Plate, and Mounting Hardware",Right keyboard plate,1,3D printed,N/A,N/A
+"Case, Plate, and Mounting Hardware",Left keyboard case,1,3D printed,N/A,N/A
+"Case, Plate, and Mounting Hardware",Right keyboard case,1,3D printed,N/A,N/A
+Pico and Display Installation Hardware,1×20 pin headers,4 strips,Two rows per Pico if soldering through-hole headers,COMES WITH PI PICO,FREE
+Pico and Display Installation Hardware,1×4 pin headers,2,For directly soldering the OLED modules,COMES WITH OLED,FREE
