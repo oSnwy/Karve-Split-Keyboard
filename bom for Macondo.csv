@@ -17,5 +17,6 @@ Switches and Keycaps,Stabilizers,As required,Required for stabilized keys,https:
 "Case, Plate, and Mounting Hardware",Right keyboard plate,1,3D printed,N/A,N/A
 "Case, Plate, and Mounting Hardware",Left keyboard case,1,3D printed,N/A,N/A
 "Case, Plate, and Mounting Hardware",Right keyboard case,1,3D printed,N/A,N/A
+"Case, Plate, and Mounting Hardware",Spacer,16,3D printed,N/A,N/A
 Pico and Display Installation Hardware,1×20 pin headers,4 strips,Two rows per Pico if soldering through-hole headers,COMES WITH PI PICO,FREE
 Pico and Display Installation Hardware,1×4 pin headers,2,For directly soldering the OLED modules,COMES WITH OLED,FREE

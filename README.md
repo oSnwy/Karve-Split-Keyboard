@@ -6,18 +6,18 @@ This is a keyboard, designed to be slightly ergonomic-consious while keeping the
 Each side of the keyboard is powered by an Pi Pico with an RP2040. The descision behind the RP2040 was due to the number of GPIO pins. Other options such as the nrf52840 and the RP2040-Zero would've worked well for this project, but the number of GPIO pins wouldn't be sufficient for all the switches and the extra features on the keyboard. The OLED screen is a general 0.91 inch 128x32px screen, with optional footprints for pull-up resistors, and the rotary encoder is a regular EC11 push switch. The switches in the keyboard are wired in a matrix with a diode on each switch. The left side is wired as an 8x6 matrix, and the right side is an 9x6 matrix. The switches themselves contain a regular mx hotswap socket which allows for easy switching between switches of the same format.
 
 ## How do I get this?
-For this keyboard, you need the pcb, switches, stablizers, keycaps, two Pi Picos, two OLED screens and two rotary encoders. You should order the rest of the components using the PCBA option on [JLCPCB](https://jlcpcb.com/). You can order it using the gerbers zip file in the Gerbers file, as well as the [bom.csv](https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/csv%20files/bom.csv) and the [positions-full-pcb-offset.csv](https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/csv%20files/positions-full-pcb-offset.csv). Make sure you choose bottom side assembly. The switches simply slide into the top of the plate and fit into the hotswap sockets on the PCB, the stablizers are plate mounted and can be slotted into the plate, and the keycaps simply go on top of the switches. The plate uses spacers to attach to both the PCB and the case using self-tapping screws. The OLED screen and Pi Pico must be soldered into the PCB using the pins, making sure they are in the correct orientation. You can set up the firmware direclty using [POG](https://pog.heaper.de/).
+For this keyboard, you need the pcb, switches, stablizers, keycaps, two Pi Picos, two OLED screens and two rotary encoders. You should order the rest of the components using the PCBA option on [JLCPCB](https://jlcpcb.com/). You can order it using the gerbers zip file in the Gerbers file, as well as the [bom.csv](https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/csv%20files/bom.csv) and the [positions-full-pcb-offset.csv](https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/csv%20files/positions-full-pcb-offset.csv). Make sure you choose bottom side assembly. The switches simply slide into the top of the plate and fit into the hotswap sockets on the PCB, the stablizers are plate mounted and can be slotted into the plate, and the keycaps simply go on top of the switches. The plate uses spacers to attach to both the PCB and the case using self-tapping screws through the plate, without the need for unnessecary mounting holes on the thin plate, which may degrade it's strength. The OLED screen and Pi Pico must be soldered into the PCB using the pins, making sure they are in the correct orientation. You can set up the firmware direclty using [POG](https://pog.heaper.de/).
 
 ## CAD
-| <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20assembly%20w%20electronics%20photo.png" width="333"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20case.png" width="334"> |
-| - | - |
-| <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20case.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20case.png" width="500"> |
-| <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20plate.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20plate.png" width="500"> |
+| <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20assembly%20w%20electronics%20photo.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20case.png" width="500"> |
+| - | - | - |
 
-This keyboard is printed in two parts, with two different cases for each half of the PCB, as well as two plates for each half.
+| <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20case.png" width="200"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20case.png" width="200"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/Spacer.png" width="200"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20plate.png" width="200"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20plate.png" width="200"> |
+| - | - | - | - | - |
+
+This keyboard is printed in two parts, with two different cases for each half of the PCB, as well as two plates for each half the plate and pcb are seperated by 3.5mm spacers, which are screwed in from the top of the plate to the PCB mounting holes.
 
 [ONSHAPE LINK](https://cad.onshape.com/documents/be21bbec0bd274685795aaea/w/a2ca9be3fdf7d240859b7480/e/7d2817619a652fb02e73bd80?renderMode=0&uiState=6a5abe03f499bb71b75dc1e1)
-
 
 
 ## Schematic
@@ -95,6 +95,7 @@ The PCB is a simple PCB with traces of varying widths for the purpose of each tr
 | Right keyboard plate | 1 | 3d printed | N/A | N/A |
 | Left keyboard case | 1 | 3d printed | N/A | N/A |
 | Right keyboard case | 1 | 3d printed | N/A | N/A |
+| Spacers | 16 | 3d pritned | N/A | N/A |
 
 
 ### Pico and Display Installation Hardware
@@ -349,3 +350,9 @@ I was going through some sensitive information on my JLCPCB account and shipping
 <img src="https://cdn.hackclub.com/019f723b-a043-755f-b9d6-dcad5ae19d37/image.png" width="1000">
 <img src="https://cdn.hackclub.com/019f723b-172d-7410-a7e7-6dc319a93c0e/image.png" width="1000">
 I wanted to lower the shipping costs of the PCB, as it was 40% of the total cost of the PCB. I attempted to split the PCB into two separate halves instead of one with mousebites to reduce the total dimensions of the PCB, and update the BOM and CPL of both of the halves. However, despite all these changes, the total cost of the PCBs actually increased, making all the work rather fruitless. I did, however, manage to find a couple of traces that were too close for the tolerances of the pads.
+
+### Journal #11
+I wrote some preliminary firmware for the keyboard, including some temporary placeholders for the OLED screens and rotary encoder behaviours. The keyboard firmware uses QMK, as well as UF2 to flash the firmware.
+![image](https://cdn.hackclub.com/019fde6d-d3f3-7ea8-87e4-22408c497c9d/image.png)
+I added some spacers, as well as changed the case of the PCB to make the mounting holes recessed rather than pins. This way, the plate can be directly screwed in using tap-in screws from the top of the plate all the way through the spacers and into the plate, mounting the plate and PCB together.
+![image](https://cdn.hackclub.com/019fde6f-b7a8-75db-a981-f872e0e6b947/image.png)
