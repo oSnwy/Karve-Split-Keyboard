@@ -133,7 +133,7 @@ It includes:
 | config.h | used to define all the pins on the picos for both the left and right split halves, as well as other features such as debounce time, OLED brightness, etc. |
 | keymap.c | used to define the keymap as well as the OLED, encoders, as well as layers. |
 
-rules.mk: 
+### rules.mk: 
 ``` C
 MCU = RP2040
 BOARD = GENERIC_RP_RP2040
@@ -146,7 +146,7 @@ OLED_TRANSPORT = i2c
 ```
 These lines are used to define the MCU, board, as well as enable rotary encoders and OLED screens.
 
-config.h: 
+### config.h: 
 ``` C
 #define DIODE_DIRECTION COL2ROW
 
@@ -176,7 +176,7 @@ This is used to define what each pin is used for, such as the matrix, encoders, 
 ```
 This means that both of the source codes are the same for both the left and right side.
 
-keymap.c:
+### keymap.c:
 ``` C
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = {
