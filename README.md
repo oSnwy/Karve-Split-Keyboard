@@ -123,13 +123,15 @@ The PCB is a simple PCB with traces of varying widths for the purpose of each tr
 This firmware is the preliminary firmware, and may be changed for the final finished build. It uses QMK, and can be flashed using UF2 and QMK commands.
 
 The firmware is grouped under the firmware file in the repositry.
-It includes
-- info.json - tells the computer what keyboard/mcu, as well as the USB type.
-- rules.mk - tells the computer what QMK features should be used, such as the I2C OLED.
-- mcuconf.h - enables the rp2040 I2C hardware for the OLED screens.
-- halconf.h - also used to enable the I2C for the OLED screens.
-- config.h - used to define all the pins on the picos for both the left and right split halves, as well as other features such as debounce time, OLED brightness, etc.
-- keymap.c - used to define the keymap as well as the OLED, encoders, as well as layers.
+It includes:
+| File | Purpose |
+| - | - |
+| info.json | tells the computer what keyboard/mcu, as well as the USB type. |
+| rules.mk | tells the computer what QMK features should be used, such as the I2C OLED. |
+| mcuconf.h | enables the rp2040 I2C hardware for the OLED screens. |
+| halconf.h | also used to enable the I2C for the OLED screens. |
+| config.h | used to define all the pins on the picos for both the left and right split halves, as well as other features such as debounce time, OLED brightness, etc. |
+| keymap.c | used to define the keymap as well as the OLED, encoders, as well as layers. |
 
 rules.mk: 
 ``` C
