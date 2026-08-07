@@ -10,7 +10,7 @@ For this keyboard, you need the pcb, switches, stablizers, keycaps, two Pi Picos
 
 ## CAD
 | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20assembly%20w%20electronics%20photo.png" width="500"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/full%20case.png" width="500"> |
-| - | - | - |
+| - | - |
 
 | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20case.png" width="200"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20case.png" width="200"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/Spacer.png" width="200"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/left%20plate.png" width="200"> | <img src="https://github.com/oSnwy/Karve-Split-Keyboard/blob/main/photos/right%20plate.png" width="200"> |
 | - | - | - | - | - |
