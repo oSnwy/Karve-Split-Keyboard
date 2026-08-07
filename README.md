@@ -121,6 +121,7 @@ The PCB is a simple PCB with traces of varying widths for the purpose of each tr
 
 ## Firmware
 This firmware is the preliminary firmware, and may be changed for the final finished build. It uses QMK, and can be flashed using UF2 and QMK commands.
+I used this repositry as a reference: https://github.com/aminch/c64p/tree/main, as well as a couple other websites.
 
 The firmware is grouped under the firmware file in the repositry.
 It includes:
