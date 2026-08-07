@@ -119,21 +119,147 @@ The PCB is a simple PCB with traces of varying widths for the purpose of each tr
 
 
 ## Firmware
-The keyboard will use [POG](https://pog.heaper.de/) to generate and configure KMK firmware for the Raspberry Pi Pico.
+This firmware is the preliminary firmware, and may be changed for the final finished build. It uses QMK, and can be flashed using UF2 and QMK commands.
 
-The final firmware has not yet been generated because POG requires access to the physical Pico and keyboard hardware for setup and testing. Firmware development and validation will be completed after the PCB and components arrive.
+The firmware is grouped under the firmware file in the repositry.
+It includes
+- info.json - tells the computer what keyboard/mcu, as well as the USB type.
+- rules.mk - tells the computer what QMK features should be used, such as the I2C OLED.
+- mcuconf.h - enables the rp2040 I2C hardware for the OLED screens.
+- halconf.h - also used to enable the I2C for the OLED screens.
+- config.h - used to define all the pins on the picos for both the left and right split halves, as well as other features such as debounce time, OLED brightness, etc.
+- keymap.c - used to define the keymap as well as the OLED, encoders, as well as layers.
 
-Planned firmware features:
+rules.mk: 
+``` C
+MCU = RP2040
+BOARD = GENERIC_RP_RP2040
+BOOTLOADER = rp2040
 
-- 8/9 × 6 key matrix on each half
-- UART communication between the two halves
-- Two rotary encoders with push buttons
-- Two I²C OLED displays
-- Custom keymap and layers
-- USB HID keyboard output
+ENCODER_ENABLE = yes
+OLED_ENABLE = yes
+OLED_DRIVER = ssd1306
+OLED_TRANSPORT = i2c
+```
+These lines are used to define the MCU, board, as well as enable rotary encoders and OLED screens.
 
-After assembly, the generated POG/KMK configuration and installation
-instructions will be added to this folder.
+config.h: 
+``` C
+#define DIODE_DIRECTION COL2ROW
+
+#define MATRIX_ROW_PINS { GP8, GP9, GP10, GP11, GP12, GP13 }
+#define MATRIX_COL_PINS { GP0, GP1, GP2, GP3, GP4, GP5, GP6, GP7, NO_PIN }
+
+#define MATRIX_ROW_PINS_RIGHT { GP5, GP4, GP3, GP2, GP1, GP0 }
+#define MATRIX_COL_PINS_RIGHT { GP14, GP13, GP12, GP11, GP10, GP9, GP8, GP7, GP6 }
+
+#define ENCODER_A_PINS { GP20 }
+#define ENCODER_B_PINS { GP21 }
+#define ENCODER_A_PINS_RIGHT { GP20 }
+#define ENCODER_B_PINS_RIGHT { GP21 }
+
+#define SERIAL_USART_FULL_DUPLEX
+#define SERIAL_USART_TX_PIN GP16
+#define SERIAL_USART_RX_PIN GP17
+
+#define I2C_DRIVER I2CD1
+#define I2C1_SDA_PIN GP18
+#define I2C1_SCL_PIN GP19
+```
+This is used to define what each pin is used for, such as the matrix, encoders, as bwell as TX/RX and pins used for the OLED screen etc. The RX/TX are crossed through the USB port, so both sides can have the same RX/TX pins. 
+
+``` C
+#define EE_HANDS
+```
+This means that both of the source codes are the same for both the left and right side.
+
+keymap.c:
+``` C
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [_BASE] = {
+        { KC_MUTE, KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_NO },
+        { KC_F13,  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_NO },
+        { KC_F14,  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_NO,   KC_NO },
+        { KC_F15,  KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_NO,   KC_NO },
+        { KC_F16,  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_NO,   KC_NO },
+        { KC_F17,  KC_LCTL, KC_LGUI, KC_LALT, KC_SPC,  KC_NO,   KC_NO,   KC_NO,   KC_NO },
+        { KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_INS,  KC_DEL,  KC_MUTE },
+        { KC_NO,   KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_PGUP },
+        { KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_PGDN },
+        { KC_NO,   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_ENT,  KC_HOME },
+        { KC_NO,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,   KC_END },
+        { KC_NO,   KC_SPC,  KC_RALT, KC_RGUI, MO(_FN), KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT }
+    },
+    [_FN] = {
+        { _______, QK_BOOT, _______, _______, _______, _______, _______, _______, KC_NO },
+        { _______, _______, _______, _______, _______, _______, _______, _______, KC_NO },
+        { _______, _______, _______, _______, _______, _______, _______, KC_NO,   KC_NO },
+        { _______, _______, _______, _______, _______, _______, _______, KC_NO,   KC_NO },
+        { _______, _______, _______, _______, _______, _______, _______, KC_NO,   KC_NO },
+        { _______, _______, _______, _______, _______, KC_NO,   KC_NO,   KC_NO,   KC_NO },
+        { _______, _______, _______, _______, _______, _______, _______, _______, _______ },
+        { KC_NO,   _______, _______, _______, _______, _______, _______, _______, _______ },
+        { _______, _______, _______, _______, _______, _______, _______, _______, _______ },
+        { KC_NO,   _______, _______, _______, _______, _______, _______, _______, _______ },
+        { KC_NO,   _______, _______, _______, _______, _______, _______, _______, _______ },
+        { KC_NO,   _______, _______, _______, _______, _______, _______, _______, _______ }
+    }
+};
+```
+The keymap file allows us to assign each matrix to a specific key by using these arrays, as well as the function layer. Right now these keys are in a tentative map, but it can easily be changed later.
+
+``` C
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) {
+        if (clockwise){
+            tap_code(KC_PGDN);
+        }else{
+            tap_code(KC_PGUP);
+        }
+    } else {
+        if (clockwise){
+            tap_code(KC_VOLU);
+        }else{
+            tap_code(KC_VOLD);
+        }
+    } 
+    return false;
+}
+```
+This simply assigns the rotary encoders left and right turns to a key.
+
+``` C
+#ifdef OLED_ENABLE
+
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    return rotation;
+}
+
+bool oled_task_user(void) {
+    oled_write_ln_P(PSTR("KARVE"), false);
+
+    if (is_keyboard_left()) {
+        oled_write_ln_P(PSTR("LEFT"), false);
+    } else {
+        oled_write_ln_P(PSTR("RIGHT"), false);
+    }
+
+    if (is_keyboard_master()) {
+        oled_write_ln_P(PSTR("MASTER"), false);
+    } else {
+        oled_write_ln_P(PSTR("SLAVE"), false);
+    }
+
+    oled_write_P(PSTR("LAYER "), false);
+    oled_write_char('0' + get_highest_layer(layer_state), false);
+
+    return false;
+}
+
+#endif
+```
+This displays "KARVE LEFT MASTER" or "KARVE RIGHT SLAVE" on the OLED screens depending on the split half. This is can easily changed to other options later.
+
 
 ## Journals
 

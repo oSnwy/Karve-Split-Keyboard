@@ -1,0 +1,18 @@
+{
+  "manufacturer": "oSnwy",
+  "keyboard_name": "Karve Split Keyboard",
+  "maintainer": "oSnwy",
+  "processor": "RP2040",
+  "bootloader": "rp2040",
+  "usb": {
+    "vid": "0x4B52",
+    "pid": "0x5656",
+    "device_version": "1.0.0"
+  },
+  "features": {
+    "bootmagic": true,
+    "extrakey": true,
+    "mousekey": false,
+    "nkro": true
+  }
+}
