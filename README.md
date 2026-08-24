@@ -27,10 +27,10 @@ This keyboard is printed in two parts, with two different cases for each half of
 The schematic contains a matrix for the switches on each side, a simple 4 pin OLED screen with pull-up resistors that can be unpopulated if the screen already has pull-ups, a USB-C UART connector between the two halves, and a fuse and capacitor for the power line. The USB-C UART connections works by splitting the TX and RX lines, as well as passing the 5v through the VSYS and passing the ground through the wire.
 
 ## PCB
-<img src="https://cdn.hackclub.com/019f6263-ce19-7235-84e5-19c77bb26d97/image.png" width="1000">
+<img src="https://cdn.hackclub.com/01a031b7-44f2-780c-9453-a04667f5d790/image.png" width="1000">
 
 The PCB is a simple PCB with traces of varying widths for the purpose of each trace. The power lines and ground lines for the USB-C receptacle were 0.75mm, other ground traces and local power lines are 0.5mm. The PCB also includes M2 holes for the mounting and mousebites so the PCB can be ordered as one part.
-| <img src="https://cdn.hackclub.com/01a0311c-92fb-76a3-b519-d71221671ada/image.png" width="500"> | <img src="https://cdn.hackclub.com/01a0311c-c991-7987-8c09-45606f55c8e7/image.png" width="500">| 
+| <img src="https://cdn.hackclub.com/01a031b8-2ff8-75bb-b7ff-ea9e0aa844e6/image.png" width="500"> | <img src="https://cdn.hackclub.com/01a0311c-c991-7987-8c09-45606f55c8e7/image.png" width="500">| 
 | - | - |
 
 The silkscreen art is put togetrher in a way that (hopefully) will show a full image of the tree when the split halves are put together.
