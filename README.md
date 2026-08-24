@@ -30,7 +30,7 @@ The schematic contains a matrix for the switches on each side, a simple 4 pin OL
 <img src="https://cdn.hackclub.com/01a031b7-44f2-780c-9453-a04667f5d790/image.png" width="1000">
 
 The PCB is a simple PCB with traces of varying widths for the purpose of each trace. The power lines and ground lines for the USB-C receptacle were 0.75mm, other ground traces and local power lines are 0.5mm. The PCB also includes M2 holes for the mounting and mousebites so the PCB can be ordered as one part.
-| <img src="https://cdn.hackclub.com/01a031b8-2ff8-75bb-b7ff-ea9e0aa844e6/image.png" width="500"> | <img src="https://cdn.hackclub.com/01a0311c-c991-7987-8c09-45606f55c8e7/image.png" width="500">| 
+| <img src="https://cdn.hackclub.com/01a03475-7364-7fec-b6be-86d31ab6d714/image.png" width="500"> | <img src="https://cdn.hackclub.com/01a03474-1f3e-7efc-bf66-fa43158d081a/image.png" width="500">| 
 | - | - |
 
 The silkscreen art is put togetrher in a way that (hopefully) will show a full image of the tree when the split halves are put together.
