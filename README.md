@@ -32,6 +32,7 @@ The schematic contains a matrix for the switches on each side, a simple 4 pin OL
 The PCB is a simple PCB with traces of varying widths for the purpose of each trace. The power lines and ground lines for the USB-C receptacle were 0.75mm, other ground traces and local power lines are 0.5mm. The PCB also includes M2 holes for the mounting and mousebites so the PCB can be ordered as one part.
 | <img src="https://cdn.hackclub.com/01a0311c-92fb-76a3-b519-d71221671ada/image.png" width="500"> | <img src="https://cdn.hackclub.com/01a0311c-c991-7987-8c09-45606f55c8e7/image.png" width="500">| 
 | - | - |
+The silkscreen art is put togetrher in a way that (hopefully) will show a full image of the tree when the split halves are put together.
 ## BOM
 
 ### JLCPCB BOM
